@@ -20,7 +20,7 @@ public class Author_add {
         WebDriver driver = new ChromeDriver(chromeOptions);
 
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(13, TimeUnit.SECONDS);
 
         driver.get("https://author.today/");
 
