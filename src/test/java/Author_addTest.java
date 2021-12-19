@@ -23,13 +23,15 @@ public class Author_addTest {
     @BeforeEach
     void setupDriver(){
         driver = new ChromeDriver();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
 
     @DisplayName("Auth")
     @Test
      void auth(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("incognito");
         driver.get("https://author.today/");
         driver.findElement(By.xpath("//a[@onclick=\"app.showLoginModal();\"]")).click();
         driver.findElement(By.xpath("//input[@data-bind=\"textInput: login\"]")).sendKeys("brat2_kv@ukr.net");
