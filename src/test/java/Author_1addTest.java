@@ -2,15 +2,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.ArrayList;
 
 
-
-public class Author_addTest {
+public class Author_1addTest {
 
     private WebDriver driver;
 
@@ -23,13 +24,13 @@ public class Author_addTest {
     @BeforeEach
     void setupDriver(){
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
     }
 
     @DisplayName("Auth")
     @Test
-     void auth(){
+     void addNotes(){
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("incognito");
         driver.get("https://author.today/");
@@ -37,6 +38,12 @@ public class Author_addTest {
         driver.findElement(By.xpath("//input[@data-bind=\"textInput: login\"]")).sendKeys("brat2_kv@ukr.net");
         driver.findElement(By.xpath("//input[@data-bind=\"textInput: password\"]")).sendKeys("slava-123");
         driver.findElement(By.xpath("//button[@data-bind=\"btn: processing\"]")).click();
+        ArrayList icons = (ArrayList) driver.findElements(By.xpath("//button[@class=\"btn btn-transparent btn-nav-add\"]"));
+        Assertions.assertTrue(icons.size() > 0);
+
+
+
+        //a[@onclick='app.showLoginModal();']
 
 
         driver.findElement(By.xpath("//button[@class=\"btn btn-transparent btn-nav-add\"]")).click();
@@ -57,15 +64,21 @@ public class Author_addTest {
 
         driver.findElement(By.xpath("//button[@data-bind=\"btn: processing\"]")).click();
         new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement toast=driver.findElement(By.cssSelector(".toast-message"));
+        String message = toast.getText();
+        System.out.println(message);
+        Assertions.assertEquals(message, "Ваш пост был успешно опубликован.");
 
     }
 
 
-    @AfterEach
-    void exitDriver(){
-        if (driver != null){
-            driver.quit();
-        }
-    }
+
+
+//    @AfterEach
+//    void exitDriver(){
+//        if (driver != null){
+//            driver.quit();
+//        }
+//    }
 
 }
