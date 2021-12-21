@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Author_3dellTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.057 s - in Author_3dellTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.342 s - in Author_3dellTest

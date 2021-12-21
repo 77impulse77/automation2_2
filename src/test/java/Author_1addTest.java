@@ -42,10 +42,6 @@ public class Author_1addTest {
         Assertions.assertTrue(icons.size() > 0);
 
 
-
-        //a[@onclick='app.showLoginModal();']
-
-
         driver.findElement(By.xpath("//button[@class=\"btn btn-transparent btn-nav-add\"]")).click();
         driver.findElement(By.xpath("//a[@href='/post/create']")).click();
 
