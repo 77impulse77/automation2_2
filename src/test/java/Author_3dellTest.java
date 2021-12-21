@@ -5,21 +5,27 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 import java.time.Duration;
 import java.util.ArrayList;
 
 public class Author_3dellTest {
+    private static ChromeOptions chromeOptions;
 
     private WebDriver driver;
 
     @BeforeAll
-    static void enableDriver(){
+    static void enableDriver() {
         WebDriverManager.chromedriver().setup();
+        chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("incognito");
+
 
     }
+
     @BeforeEach
-    void setupDriver(){
-        driver = new ChromeDriver();
+    void setupDriver() {
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
@@ -27,9 +33,8 @@ public class Author_3dellTest {
     @DisplayName("Dell")
     @Test
     void dellNotes() {
-//        ChromeOptions chromeOptions = new ChromeOptions();
-//        chromeOptions.addArguments("incognito");
-//        WebDriver driver = new ChromeDriver(chromeOptions);
+
+
         driver.get("https://author.today/");
         driver.findElement(By.xpath("//a[@onclick=\"app.showLoginModal();\"]")).click();
         driver.findElement(By.xpath("//input[@data-bind=\"textInput: login\"]")).sendKeys("brat2_kv@ukr.net");
@@ -58,25 +63,18 @@ public class Author_3dellTest {
         driver.findElement(By.xpath("//span[contains(text(),\"×\")]")).click();
         driver.findElement(By.xpath("//button[@class='btn btn-simple-danger mr']")).click();
         driver.findElement(By.xpath("//button[@class='btn btn-simple-danger ml-sm']")).click();
-        WebElement toast=driver.findElement(By.cssSelector(".toast-message"));
+        WebElement toast = driver.findElement(By.cssSelector(".toast-message"));
         String message = toast.getText();
         System.out.println(message);
-        Assertions.assertEquals(message.substring(message.length()-11), "был удален.");
-
-
-
-
-
+        Assertions.assertEquals("был удален.", message.substring(message.length() - 11));
 
 
     }
 
 
-
-
     @AfterEach
-    void exitDriver(){
-        if (driver != null){
+    void exitDriver() {
+        if (driver != null) {
             driver.quit();
         }
     }

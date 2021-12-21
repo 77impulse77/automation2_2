@@ -38,6 +38,6 @@ public class Author_edit {
         driver.findElement(By.xpath("//button[@data-bind=\"btn: processing\"]")).click();
 
 
-//      driver.quit();
+     driver.quit();
     }
 }
