@@ -32,8 +32,9 @@ public class Author_2editTest {
     @DisplayName("Auth")
     @Test
     void addNotes() throws InterruptedException {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("incognito");
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("incognito");
+//        WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://author.today/");
         driver.findElement(By.xpath("//a[@onclick=\"app.showLoginModal();\"]")).click();
         driver.findElement(By.xpath("//input[@data-bind=\"textInput: login\"]")).sendKeys("brat2_kv@ukr.net");
