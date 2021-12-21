@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Author_2editTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.393 s - in Author_2editTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.893 s - in Author_2editTest
