@@ -7,32 +7,35 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 import java.util.ArrayList;
 
 
 public class Author_1addTest {
-
+    private static ChromeOptions chromeOptions;
     private WebDriver driver;
 
     @BeforeAll
-     static void enableDriver(){
-//       System.setProperty("webdriver.chrome.driver", "src/main/resources//chromedriver.exe");
-          WebDriverManager.chromedriver().setup();
+    static void enableDriver() {
 
+        WebDriverManager.chromedriver().setup();
+        chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("incognito");
 
 
     }
+
     @BeforeEach
-    void setupDriver(){
-        driver = new ChromeDriver();
+    void setupDriver() {
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
 
     @DisplayName("Auth")
     @Test
-     public void addNotes(){
+    public void addNotes() {
 //        ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.addArguments("incognito");
 //        WebDriver driver = new ChromeDriver(chromeOptions);
@@ -64,7 +67,7 @@ public class Author_1addTest {
 
         driver.findElement(By.xpath("//button[@data-bind=\"btn: processing\"]")).click();
         new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement toast=driver.findElement(By.cssSelector(".toast-message"));
+        WebElement toast = driver.findElement(By.cssSelector(".toast-message"));
         String message = toast.getText();
         System.out.println(message);
         Assertions.assertEquals(message, "Ваш пост был успешно опубликован.");
@@ -72,11 +75,9 @@ public class Author_1addTest {
     }
 
 
-
-
     @AfterEach
-    void exitDriver(){
-        if (driver != null){
+    void exitDriver() {
+        if (driver != null) {
             driver.quit();
         }
     }
