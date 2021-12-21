@@ -74,11 +74,11 @@ public class Author_1addTest {
 
 
 
-//    @AfterEach
-//    void exitDriver(){
-//        if (driver != null){
-//            driver.quit();
-//        }
-//    }
+    @AfterEach
+    void exitDriver(){
+        if (driver != null){
+            driver.quit();
+        }
+    }
 
 }

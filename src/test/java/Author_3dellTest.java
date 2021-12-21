@@ -76,11 +76,11 @@ public class Author_3dellTest {
 
 
 
-//    @AfterEach
-//    void exitDriver(){
-//        if (driver != null){
-//            driver.quit();
-//        }
-//    }
+    @AfterEach
+    void exitDriver(){
+        if (driver != null){
+            driver.quit();
+        }
+    }
 
 }
