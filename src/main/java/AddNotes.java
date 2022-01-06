@@ -14,11 +14,12 @@ public class AddNotes extends BasePageObj {
 
     public AddNotes(WebDriver driver) {
         super(driver);
-        //whoСan =  driver.findElement(By.name("PrivacyDisplay"));
+
 
     }
 
     public void clickAddNotes() {
+
         driver.findElement(topic).click();
         driver.findElement(selectOfftopic).click();
         driver.findElement(title).sendKeys("page object");
