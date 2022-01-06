@@ -18,16 +18,6 @@ public class LoginPageTest extends BaseTest{
         Assertions.assertTrue(icons.size() > 0);
 
     }
-//@Test
-//void loginIn(){
-//    LoginPage loginIn = new LoginPage(driver);
-//    loginIn.loginIn("brat2_kv@ukr.net", "slava-123");
-//    new WebDriverWait(driver, Duration.ofSeconds(10));
-//}
-    @AfterEach
-    void exitDriver() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
+
 }

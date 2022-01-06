@@ -7,6 +7,7 @@ public class HeaderBar extends BasePageObj{
 
 
     public HeaderBar(WebDriver driver) {
+
         super(driver);
     }
 

@@ -15,6 +15,7 @@ public class BaseTest {
     protected HeaderBar headerBar;
     protected LoginPage loginPage;
     protected AddNotes addNotes ;
+    protected DellNotes dellNotes;
 
     @BeforeAll
     static void enableDriver() {
@@ -29,6 +30,7 @@ public class BaseTest {
         addNotes = new AddNotes(driver);
         headerBar = new HeaderBar(driver);
         loginPage = new LoginPage(driver);
+        dellNotes = new DellNotes(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://author.today/");
         loginPage.loginIn("brat2_kv@ukr.net", "slava-123");
