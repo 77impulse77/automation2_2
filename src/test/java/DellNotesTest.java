@@ -1,3 +1,4 @@
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.Test;
 
 public class DellNotesTest extends BaseTest{
@@ -6,6 +7,7 @@ public class DellNotesTest extends BaseTest{
 
 
     @Test
+    @Epic("del notes")
     void dellAddNotes (){
         dellNotes.clickDellNote();
 

@@ -1,1 +1,6 @@
-Author_add.class
+HeaderBar.class
+LoginPage.class
+BasePageObj.class
+NotesValidator.class
+DellNotes.class
+AddNotes.class

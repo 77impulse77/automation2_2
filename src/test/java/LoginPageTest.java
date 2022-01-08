@@ -1,3 +1,4 @@
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class LoginPageTest extends BaseTest{
 
 
     @Test
+    @Epic("logged in user")
     void loginIn(){
         new WebDriverWait(driver, Duration.ofSeconds(10));
         ArrayList icons = (ArrayList) driver.findElements(By.xpath("//button[@class=\"btn btn-transparent btn-nav-add\"]"));
